@@ -1,0 +1,73 @@
+/**************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+***************************/
+#include <stdio.h>
+
+
+void main()
+{
+    FILE *fp;
+    char name[300];
+
+    //clrscr();
+
+    // 1. Writing data into file
+    fp = fopen("student.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+    
+        return;
+    }
+
+    fprintf(fp, "Welcome to C Programming");
+
+    fclose(fp);
+
+    printf("Data written successfully\n");
+
+
+    // 2. Appending data into file
+    fp = fopen("student.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "\nWelcome to File Handling");
+
+    fclose(fp);
+
+    printf("Data appended successfully\n");
+
+
+    // 3. Reading data from file
+    fp = fopen("student.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    printf("\nFile Contents:\n");
+
+    while (fgets(name, sizeof(name), fp) != NULL)
+    {
+        printf("%s", name);
+    }
+
+    fclose(fp);
+
+
+}
